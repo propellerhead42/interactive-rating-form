@@ -1,0 +1,18 @@
+1. rating-card:
+
+    > img round left top corner
+    > card-heading
+    > card-description
+    > form
+    > 1 - 5 round checkboxes
+    > submit button
+
+
+2. appreciation-card: 
+    (all is centered)
+
+    > img center top
+    > output paragraph with the value of the choosen rating
+    > card-heading
+    > card-description
+
