@@ -1,16 +1,14 @@
 <template>
-  <section class="card-wrapper">
-
-  </section>
+  <RatingCard />
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import RatingCard from './components/RatingCard.vue'
 
 export default {
   name: 'App',
   components: {
-
+    RatingCard
   }
 }
 </script>
@@ -18,40 +16,18 @@ export default {
 <style lang="scss">
 // Global styles
 
-// Reset:
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@import "../src/assets/scss/globals.scss";
+
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(242, 242, 242);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $very-dark-blue;
 }
-
-body {
-  font-family: 'Overpass', sans-serif;
-  
-  p{
-    font-size: 15px;
-  }
-
-}
-
-input,
-button,
-select,
-a {
-  font: inherit
-}
-
-// Variabels:
-$orange: hsl(25, 97%, 53%);
-
-$white: hsl(0, 0%, 100%);
-$light-grey: hsl(217, 12%, 63%);
-$medium-grey: hsl(216, 12%, 54%);
-$dark-blue: hsl(213, 19%, 18%);
-$very-dark-blue: hsl(216, 12%, 8%);
-
-
-#app { }
 
 
 </style>
