@@ -1,5 +1,11 @@
 .DS_Store
 node_modules
+README.md
+public
+screenshots
+scr
+vue.config.js
+
 
 
 # local env files
