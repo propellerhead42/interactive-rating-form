@@ -1,5 +1,4 @@
 <template>
-  <section class="card rating-card">
       <div class="logo-container">
         <img class="circle-bgn" src="../assets/images/icon-star.svg" alt="">
       </div>
@@ -27,7 +26,6 @@
             </section>
             <button type="submit">SUBMIT</button>
       </form>
-  </section>
 </template>
 
 <script>
@@ -45,7 +43,7 @@ export default {
                 return;
             } else {
                 this.errorMsg = "";
-                console.log("submit", this.ratingNumber);
+                this.$emit("rating-number", this.ratingNumber);
             }
 
         }
@@ -56,16 +54,6 @@ export default {
 <style lang="scss">
 @import "../assets/scss/globals.scss";
 
-.card {
-    width: clamp(270px, 200px + 30vw, 400px);
-    background: $dark-blue;
-    padding: 2rem;
-    border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
 .description-heading {
     color: $white;
     font-size: 2rem;
@@ -75,6 +63,17 @@ export default {
 .description-para {
     color: $light-grey;
     line-height: 1.5rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+
+    .circle-bgn {
+        background: $round-bgn-form;
+        padding: 1rem;
+        border-radius: 50%;
+    }
 }
 
 .card-rating-form {
@@ -99,17 +98,6 @@ export default {
             color: $orange;
             background: $white;
         }
-    }
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-
-    .circle-bgn {
-        background: $round-bgn-form;
-        padding: 1rem;
-        border-radius: 50%;
     }
 }
 
