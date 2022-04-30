@@ -1,7 +1,10 @@
 <template>
   <section class="card rating-card">
-      <div class="round-background">
-        <img src="../assets/images/icon-star.svg" alt="">
+      <div class="logo-container">
+
+        <img class="circle-bgn" src="../assets/images/icon-star.svg" alt="">
+
+
       </div>
       <h3 class="heading-3">How did we do?</h3>
       <p class="main-p">
@@ -10,26 +13,33 @@
       <form @submit.prevent="handleSubmit" class="card-rating-form">
           <section class="checkbox-container">
               <div class="checkbox-wrapper">
-                  <label class="main-p" >1
-                    <input type="radio" value="1">
-                  </label>
-              </div>
-                <div class="checkbox-wrapper">
-                    <label class="main-p" >2</label>
-                <input type="checkbox" value="2">
+                    <label class="main-p circle-bgn" >1
+                    <input type="radio" value="1" name="ratingNumber" v-model="ratingNumber">
+                    </label>
               </div>
               <div class="checkbox-wrapper">
-                  <label class="main-p" >3</label>
-                <input type="checkbox" value="3">
+                    <label class="main-p circle-bgn" >
+                    <input type="radio" value="2" name="ratingNumber" v-model="ratingNumber">
+                    </label>
               </div>
               <div class="checkbox-wrapper">
-                  <label class="main-p" >4</label>
-                <input type="checkbox" value="4">
+                    <label class="main-p circle-bgn" >3
+                    <input type="radio" value="3" name="ratingNumber" v-model="ratingNumber">
+                    </label>
               </div>
               <div class="checkbox-wrapper">
-                  <label class="main-p" >5</label>
-                <input type="checkbox" value="5">
+                    <label class="main-p circle-bgn" >4
+                    <input type="radio" value="4" name="ratingNumber" v-model="ratingNumber">
+                    </label>
               </div>
+              <div class="checkbox-wrapper">
+                    <label class="main-p circle-bgn" >5
+                    <input type="radio" value="5" name="ratingNumber" v-model="ratingNumber">
+                    </label>
+              </div>
+              <div class="errorModal" v-if="errorMsg">
+                  <p>{{errorMsg}}</p>
+                </div>
           </section>
         <button type="submit">SUBMIT</button>
       </form>
@@ -40,12 +50,20 @@
 export default {
     data() {
         return {
-            ratingValue: 0
+            ratingNumber: null,
+            errorMsg: ""
         }
     },
     methods: {
-        handleSubmit(e) {
-            console.log("submit", e);
+        handleSubmit() {
+            if(this.ratingNumber == null){
+                this.errorMsg = "Choose a number";
+                return;
+            } else {
+                this.errorMsg = "";
+                console.log("submit", this.ratingNumber);
+            }
+
         }
     }
 }
@@ -59,6 +77,9 @@ export default {
     background: $dark-blue;
     padding: 2rem;
     border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .heading-3 {
@@ -72,36 +93,92 @@ export default {
 .card-rating-form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
-.round-background {
-    background-color: $round-bgn-form;
+.logo-container {
+    padding: 1rem 0;
     display: flex;
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    border-radius: 50%;
-}
-
-
-.checkbox-wrapper{
-    position: relative;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    background: $round-bgn-form;
-    border-radius: 50%;
 
-
-
+    .circle-bgn {
+        background: $round-bgn-form;
+        padding: 1rem;
+        border-radius: 50%;
+    }
 }
 
 .checkbox-container {
+    position: relative;
     display: flex;
     justify-content: space-around;
-    height: 2rem;
-    margin: 2rem 0;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.checkbox-wrapper {
+    position: relative;
+    .circle-bgn {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    label {
+        color: $white;
+        z-index: 999;
+
+        &:hover {
+        }
+    }
+
+    input {
+        position: absolute;
+        appearance: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: $round-bgn-form;
+
+        &::after {
+            position: relative;
+            content: " ";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        &:hover {
+            background-color: $light-grey;
+        }
+
+        &:checked{
+            background-color: $orange;
+        }
+
+    }
+}
+
+.errorModal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(164, 19, 19);
+    color: $white;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
 }
 
 </style>
