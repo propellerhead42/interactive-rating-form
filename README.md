@@ -9,7 +9,7 @@ FrontendMentor Challenge
 
 Created with vue and scss
 
-## View Here:
+## Try it here:
 
 https://propellerhead42.github.io/interactive-rating-form/
 
