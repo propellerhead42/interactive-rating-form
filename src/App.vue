@@ -35,8 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
-// Global styles
 
+// Global styles
 @import "../src/assets/scss/globals.scss";
 
 
