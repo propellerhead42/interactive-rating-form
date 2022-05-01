@@ -2,7 +2,7 @@
 
 <section class="appreciation-container">
   <div class="image-conatiner">
-    <img src="@/assets/images/illustration-thank-you.svg" alt="">
+    <img src="@/assets/images/illustration-thank-you.svg" alt="Thank you illustration">
   </div>
   <div class="rating-container">
     <p>You selected {{ratingNumber}} out of 5</p>
@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "./src/assets/scss/globals.scss";
 
 .appreciation-container{
