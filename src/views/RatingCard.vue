@@ -1,6 +1,6 @@
 <template>
       <div class="logo-container">
-        <img class="circle-bgn" src="../assets/images/icon-star.svg" alt="">
+        <img class="circle-bgn" src="../assets/images/icon-star.svg" alt="Icon in form of a star">
       </div>
       <article class="card-description">
             <h3 class="description-heading">How did we do?</h3>
@@ -10,6 +10,7 @@
         </article>
       <form @submit.prevent="handleSubmit" class="card-rating-form">
             <section class="radio-input-container">
+                <!-- add label for inputs -->
                 <input type="radio" value="1" name="ratingNumber" v-model="ratingNumber">
 
                 <input type="radio" value="2" name="ratingNumber" v-model="ratingNumber">
@@ -51,8 +52,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/scss/globals.scss";
+
 
 .description-heading {
     color: $white;
